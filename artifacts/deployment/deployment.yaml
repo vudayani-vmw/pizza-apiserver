@@ -18,7 +18,7 @@ spec:
       serviceAccountName: apiserver
       containers:
       - name: apiserver
-        image: quay.io/programming-kubernetes/pizza-apiserver:latest
+        image: dev.registry.tanzu.vmware.com/app-live-view/pizza-apiserver:latest
         imagePullPolicy: Always
         command: ["/pizza-apiserver"]
         args:
@@ -29,3 +29,5 @@ spec:
       - name: etcd
         image: quay.io/coreos/etcd:v3.2.24
         workingDir: /tmp
+      imagePullSecrets:
+      - name: pizza-secret
